@@ -1,0 +1,65 @@
+import os 
+
+os.system("cls ||clear")
+
+contador = 0
+numeros = []
+numero = 0
+NumerosPares = 0 
+NumerosImpares = 0 
+NumerosPositivos = 0
+NumerosNegativos = 0
+MaiorNumero = 0
+MenorNumero = 0    
+MediaPares = 0
+MediaImpares = 0
+MediaGeral = 0
+SomaPares = 0
+SomaImpares = 0
+
+for i in range(5):
+    numero = int(input(f"Digite um Número: "))
+    contador+=1
+    somaNumeros : int = 0
+    somaNumeros += numero
+
+
+    if numero % 2 == 0:
+        SomaPares += numero
+        NumerosPares+=1
+    else: 
+        SomaImpares += numero
+        NumerosImpares+=1
+    if numero  > 0:
+        NumerosPositivos+=1
+    else:
+        NumerosNegativos+=1
+
+    numeros.append(numero)
+    
+    MaiorNumero = max(numeros)
+    MenorNumero = min(numeros)
+
+
+#Cálculo do sistema.
+
+MediaPares = SomaPares/contador
+MediaImpares = SomaImpares/contador
+MediaGeral = somaNumeros/contador
+
+
+
+#Exibindo Dados.
+
+print("\n")
+print(f"Quantidade de Números Pares: {NumerosPares}")
+print(f"Quantidade de Números Impares:{NumerosImpares}")
+print(f"Quantidade de Números Positivos: {NumerosPositivos}")
+print(f"Quantidade de Números Negativos: {NumerosNegativos}")
+print(f"Quantidade de Números Inseridos: {len(numeros)}")
+print(f"Maior Número: {MaiorNumero}")
+print(f"Menor Número: {MenorNumero}")
+print(f"Média dos Números Pares: {MediaPares}")
+print(f"Média dos Números Impares: {MediaImpares}")
+print(f"Média de Todos os Números Inseridos: {MediaGeral}")
+print(f"Números em Ordem Inversa: {numeros[::-1]}")
