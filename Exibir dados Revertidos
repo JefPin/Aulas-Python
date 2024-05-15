@@ -1,0 +1,22 @@
+import os 
+
+os.system("clear")
+
+valores = []
+i = 0
+while len(valores) < 6:
+    try:
+        valor = int(input(f"Digite um Valor: "))
+        if valor % 2 == 0 and valor > 0:
+            valores.append(valor)
+        else: 
+            print("Por favor, Digite um Valor Par Positivo.")
+    
+    except:
+        print("Por favor, Digite um valor inteiro.")
+        
+print("\n")
+
+for valor in reversed(valores):
+    print(f"Valores invertidos: {valor}")
+    
