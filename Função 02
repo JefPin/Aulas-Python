@@ -1,0 +1,17 @@
+import os 
+os.system("clear")
+
+# Função sem retorno.
+def logoSenai():
+    os.system("clear")
+    print("=== SENAI ===")
+
+# Função sem retorno.
+def tabuada(numero):
+    for i in range(1,11):
+        print(f"{numero} x {i} = {numero*i}")
+
+logoSenai()
+numero = int(input("Digite um Número: "))
+
+tabuada(numero)
