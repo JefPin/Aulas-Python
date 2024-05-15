@@ -1,0 +1,22 @@
+import os 
+os.system("clear")
+
+i = 0
+
+def logoSenai():
+    os.system("clear")
+    print("=== SENAI ===")
+
+def mediar(n1,n2):
+    resultado = (n1 + n2)/2
+    return resultado
+
+logoSenai()
+primeiroNumero = int(input(f"\nDigite sua {i+1}ª Nota: "))
+logoSenai()
+segundoNumero = int(input(f"\nDigite sua {i+2}ª Nota: "))
+
+media = mediar(primeiroNumero,segundoNumero)
+
+logoSenai()
+print(f"\nMédia: {media}")
