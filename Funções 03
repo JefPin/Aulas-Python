@@ -1,0 +1,37 @@
+import os 
+os.system("clear")
+
+# Função sem retorno.
+def logoSenai():
+    os.system("clear")
+    print("=== SENAI ===")
+
+def somar(n1,n2):
+    resultado = n1+n2
+    return resultado
+def subtraindo(n1,n2):
+    resultado = n1-n2
+    return resultado
+def dividindo(n1,n2):
+    resultado = n1/n2
+    return resultado
+def multiplicando(n1,n2):
+    resultado = n1*n2
+    return resultado
+
+i = 0
+logoSenai()
+primeiroNumero = int(input(f"Digite sua {i+1}ª Nota: "))
+logoSenai()
+segundoNumero = int(input(f"Digite sua {i+2}ª Nota: "))
+
+soma = somar(primeiroNumero,segundoNumero)
+subtracao = subtraindo(primeiroNumero,segundoNumero)
+divisao = dividindo(primeiroNumero,segundoNumero)
+multiplicacao = multiplicando(primeiroNumero,segundoNumero)
+
+logoSenai()
+print(f"Soma: {soma}")
+print(f"Subtração: {subtracao}")
+print(f"Divisão: {divisao}")
+print(f"Multiplicação: {multiplicacao}")
