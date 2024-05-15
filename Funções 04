@@ -1,0 +1,19 @@
+import os
+os.system("clear")
+
+impares= 0 
+pares = 0
+
+def logoSenai():
+    os.system("clear")
+    print("=== SENAI ===")
+
+def verificando(numero):
+    if numero % 2 == 0:
+        print("Par")
+    else:
+        print("Impar")
+logoSenai()
+numero = int(input("\nDigite um Número: "))
+
+verificando(numero)
