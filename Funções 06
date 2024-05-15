@@ -1,0 +1,25 @@
+import os 
+os.system("clear")
+
+def logoSenai():
+    os.system("clear")
+    print("=== SENAI ===")
+
+def calculando():
+    preco = float(input("Digite Qual o Valor do Seu Produto: "))
+    if preco < 100:
+        resultado = (preco * 0.1) + preco
+        print("Frete Aplicado de R$ 37,00")
+        resultado += 37
+        print(f"Preço Inflacionado em 10%: {resultado}")
+        return resultado
+    elif preco >= 100:
+        resultado = (preco * 0.98) + preco
+        print("Frete Aplicado de R$ 120,00")
+        resultado += 120
+        print(f"Preço Inflacionado em 98%: {resultado}")
+        return resultado
+    print(f"Resultado: {resultado}")
+
+logoSenai()
+calculando()
