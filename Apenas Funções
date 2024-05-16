@@ -1,0 +1,160 @@
+import os
+import time
+os.system("clear")
+
+# Declarando Variáveis.
+nomesFuncionarios = [] # nome de funcionário para exibir no programa
+matriculas = [] 
+salarioBase = [] # salario base para exibir o salário bruto ao final do código
+salarioDescontando = [] # faz os descontos do salário e exibe líquido
+
+
+# Declarando Funções.
+def opcao1():
+    nomeFuncionario = input("Informe Seu nome: ")
+    matricula = input("Digite sua Matrícula: ")
+    
+    nomesFuncionarios.append(nomeFuncionario)
+    matriculas.append(matricula)
+    
+    print("Registrando...") 
+    time.sleep(1)
+    os.system("clear")
+    
+    posicaoFuncionario = nomesFuncionarios.index(nomeFuncionario) # Posição do funcionário para exibir dados em ordem de cadastro
+    return posicaoFuncionario
+    
+def opcao2():
+    print(f"Seja Bem-vindo: {nomesFuncionarios[posicaoFuncionario]}")
+    
+    salarioBruto = float(input("Informe seu Salário R$ "))
+    salarioDescontando.append(salarioBruto)
+    salarioBase.append(salarioBruto)
+    time.sleep(1)
+    os.system("clear")
+    
+    
+def opcao3():
+    valeTrasnporte = input("Deseja receber o vale transporte? (s/n): ").lower()
+    desconto_transporte : float = 0.0
+    if valeTrasnporte == 's':
+        desconto_transporte = salarioDescontando[posicaoFuncionario] * 0.06
+        salarioDescontando[posicaoFuncionario] -= desconto_transporte
+    elif valeTrasnporte == 'n':
+        print("\nVale Transporte recusado!")
+    
+    print(f"Seu Salário atual com desconto aplicado: {salarioDescontando[posicaoFuncionario]}")
+    time.sleep(3)
+    os.system("clear")
+    
+def opcao4():
+    resposta = input("Deseja adicionar vale-alimentação? (s/n): ").lower()
+    if resposta == 's':
+        desconto_refeicao: float = 0.0
+        desconto_refeicao = salarioDescontando[posicaoFuncionario] * 0.20
+        salarioDescontando[posicaoFuncionario] -= desconto_refeicao
+    elif resposta == 'n':
+        print("Vale Refeição recusado!")
+        
+    print(f"Seu Salário atual com desconto aplicado: {salarioDescontando[posicaoFuncionario]}")
+    time.sleep(3)
+    os.system("clear")
+
+def opcao6():
+    print(f"Salário Base: {salarioBase[posicaoFuncionario]:.2f}")
+    print(f"Salário Líquido após descontos: {salarioDescontando[posicaoFuncionario]:.2f}")
+    time.sleep(2)
+    os.system("clear")
+        
+    
+def planodesaude():
+    print("Plano de Saúde Descontado R$ 150,00")
+    salarioDescontando[posicaoFuncionario] -= 150
+    dependente: int = 0
+    dependentes = int(input("Digite a quantidade de dependentes: "))
+    if dependentes > 0:
+        salarioDescontando[posicaoFuncionario] += dependentes * 189.59
+    print(f"Salário Depois do Desconto: {salarioDescontando[posicaoFuncionario]:.1f}")
+    time.sleep(4)
+    os.system("clear")
+    
+def inss():
+    desconto_inss: float = 0.0
+    if salarioBase[posicaoFuncionario] <= 1100.00:
+        desconto_inss = salarioDescontando[posicaoFuncionario] * 0.075
+        salarioDescontando[posicaoFuncionario] -= desconto_inss
+        print(f"Desconto de 7,5% R$ {desconto_inss:.2f}")
+    elif salarioBase[posicaoFuncionario] <= 2203.48:
+        desconto_inss = salarioDescontando[posicaoFuncionario] * 0.9
+        salarioDescontando[posicaoFuncionario] -= desconto_inss
+        print(f"Desconto de 9% R$ {desconto_inss:.2f}")
+    elif salarioBase[posicaoFuncionario] <= 3035.22:
+        desconto_inss = salarioDescontando[posicaoFuncionario] * 0.12
+        salarioDescontando[posicaoFuncionario] -= desconto_inss
+        print(f"Desconto de 12% R$ {desconto_inss:.2f}")
+    elif salarioBase[posicaoFuncionario] <= 6433.57:
+        desconto_inss = salarioDescontando[posicaoFuncionario] * 0.14
+        salarioDescontando[posicaoFuncionario] -= desconto_inss
+        print(f"Desconto de 14% R$ {desconto_inss:.2f}")
+    elif salarioBase[posicaoFuncionario] >= 6443.58:
+        salarioDescontando[posicaoFuncionario] -= 854.36
+    
+def irrf():
+    desconto_irrf: float = 0.0
+    if salarioBase[posicaoFuncionario] <= 2259.20:
+        print("Isento")
+    elif salarioBase[posicaoFuncionario] <= 2826.65:   
+        desconto_irrf = salarioDescontando[posicaoFuncionario] * 0.075
+        salarioDescontando[posicaoFuncionario] -= desconto_irrf
+        print(f"Desconto de 7,5% R$ {desconto_irrf:.2f}")
+    elif salarioBase[posicaoFuncionario] <= 3751.05:
+        desconto_irrf = salarioDescontando[posicaoFuncionario] * 0.15
+        salarioDescontando[posicaoFuncionario] -= desconto_irrf
+        print(f"Desconto de 15% R$ {desconto_irrf:.2f}")
+    elif salarioBase[posicaoFuncionario] <= 4664.68:
+        desconto_irrf = salarioDescontando[posicaoFuncionario] * 0.225
+        salarioDescontando[posicaoFuncionario] -= desconto_irrf
+        print(f"Desconto de 22,5% R$ {desconto_irrf:.2f}")
+    elif salarioBase[posicaoFuncionario] <= 4664.69:
+        desconto_irrf = salarioDescontando[posicaoFuncionario] * 0.227
+        salarioDescontando[posicaoFuncionario] -= desconto_irrf
+        print(f"Desconto de 22,7% R$ {desconto_irrf:.2f}")
+        
+        
+def menu():
+    print("\n=== Sistemas da Empresa ===\n")
+    print("1 - Solicitar matrícula e senha para ter acesso aos seus dados")
+    print("2 - Solicitar o salário base")
+    print("3 - Vale transporte")
+    print("4 - Vale refeição")
+    print("5 - Calcular os descontos e acréscimos na folha de pagamento")
+    print("6 - Salário líquido após os descontos e acréscimos")
+    print("7 - Encerrar o Programa")
+    
+while True:
+    menu()
+    selecionando = int(input("Selecione Uma Opção Acima: "))
+    os.system("clear")
+    
+    if selecionando == 1:
+        posicaoFuncionario = opcao1()
+    elif selecionando == 2:
+        opcao2()
+    elif selecionando == 3:
+        opcao3()
+    elif selecionando == 4:    
+        opcao4()
+    elif selecionando == 5:
+        irrf()
+        inss()
+        planodesaude()
+    elif selecionando == 6:
+        opcao6()
+    elif selecionando == 7:
+        print("Encerrando o Programa...")
+        break
+    else:
+        print("Selecione uma Opção Válida")
+        time.sleep(1)
+        os.system("clear")
+        
