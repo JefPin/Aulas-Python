@@ -1,0 +1,104 @@
+import customtkinter as ctk
+from tkinter import messagebox
+
+#---------- Funções ----------
+def calculo():
+    Vdolar = 100
+    Vreal = 5.67
+    
+    Vdolar=float(Vdolar.get())
+    Vreal=float(Vreal.get())
+    
+    formula = Vdolar*Vreal
+
+    messagebox.showinfo('Conversão',f'O valor da conversão em real é R$ {formula:.2f}')
+#-----------------------------
+
+janela = ctk.CTk('gray')
+janela.geometry('550x400')
+janela.resizable(False,False)
+janela.title('Aplicativo Consumo de Viagem')
+janela.iconbitmap('map_car_fuel_icon_158322.ico')
+
+ctk.CTkLabel(janela,text='Conversão de Moedas',
+             font=('verdana',30,'bold'),
+             text_color='black').pack(pady=20)
+
+ctk.CTkLabel(janela,text='Valor em Real',
+             text_color='black',
+             font=('verdana',15,'bold'),
+             ).place(x=40,y=110)
+
+conversao = ctk.CTkEntry(janela,width=400,
+                         height=60,
+                         )
+conversao.place(x=40,y=140)
+
+botao = ctk.CTkButton(janela,width=150,
+                      height=40,fg_color='green',
+                      text_color='white',
+                      text='Calcular',
+                      hover_color='darkgreen',command=calculo)
+botao.place(x=200,y=310)
+
+janela.mainloop()
+
+
+
+#---------------------------------------------------------------------------------
+
+import customtkinter as ctk
+from tkinter import messagebox
+
+#---------- Funções ----------
+def calculo():
+    try:
+        # Captura o valor em dólar inserido pelo usuário
+        Vdolar = float(conversao.get())  # Conversão do valor de string para float
+        
+        # Define a taxa de câmbio fixa
+        taxa_de_cambio = 5.67  # Taxa de câmbio exemplo
+        
+        # Calcula o valor em reais
+        Vreal = Vdolar * taxa_de_cambio
+
+        # Exibe o resultado com uma mensagem
+        messagebox.showinfo('Conversão', f'O valor da conversão em real é R$ {Vreal:.2f}')
+    except ValueError:
+        # Caso o usuário não insira um valor válido
+        messagebox.showerror('Erro', 'Por favor, insira um valor válido.')
+
+#----------------------------- 
+
+# Criar a janela principal
+janela = ctk.CTk()
+janela.geometry('550x400')
+janela.resizable(False, False)
+janela.title('Aplicativo Consumo de Viagem')
+janela.iconbitmap('map_car_fuel_icon_158322.ico')
+
+# Título
+ctk.CTkLabel(janela, text='Conversão de Moedas',
+             font=('verdana', 30, 'bold'),
+             text_color='black').pack(pady=20)
+
+# Label para o valor em Dólar
+ctk.CTkLabel(janela, text='Valor em Dólar',
+             text_color='black',
+             font=('verdana', 15, 'bold')).place(x=40, y=110)
+
+# Caixa de texto para o valor em Dólar
+conversao = ctk.CTkEntry(janela, width=400,
+                         height=60)
+conversao.place(x=40, y=140)
+
+# Botão de cálculo
+botao = ctk.CTkButton(janela, width=150,
+                      height=40, fg_color='green',
+                      text_color='white',
+                      text='Calcular',
+                      hover_color='darkgreen', command=calculo)
+botao.place(x=200, y=310)
+
+# Iniciar o loop principal
+janela.mainloop()
