@@ -1,0 +1,56 @@
+
+import customtkinter as ctk
+
+janela = ctk.CTk('silver')
+janela.geometry('600x450')
+janela.resizable(False,False)
+janela.title('Aplicativo Consumo de Viagem')
+janela.iconbitmap('map_car_fuel_icon_158322.ico')
+
+ctk.CTkLabel(janela,text='Aplicativo Consumo de Viagem',
+             font=('verdana',30,'bold'),
+             text_color='black').pack(pady=20)
+
+ctk.CTkLabel(janela,text='13/03/2025 - Senai Bahia',
+             font=('verdana',25,'bold'),
+             text_color='black').pack()
+
+
+ctk.CTkLabel(janela,text='Distância',
+             text_color='black',
+             font=('verdana',15,'bold'),
+             ).place(x=20,y=120)
+
+ 
+ctk.CTkLabel(janela,text='Preço',
+             text_color='black',
+             font=('verdana',15,'bold'),
+             ).place(x=20,y=260)
+
+
+distancia = ctk.CTkEntry(janela,width=400,
+                         height=40,
+                         )
+distancia.place(x=20,y=150)
+
+
+consumo = ctk.CTkEntry(janela,width=400,
+                       height=40,
+                       )
+consumo.place(x=20,y=220)
+
+
+preco = ctk.CTkEntry(janela,width=400,
+                     height=40,
+                     )
+preco.place(x=20,y=290)
+
+
+botao = ctk.CTkButton(janela,width=150,
+                      height=40,fg_color='gray',
+                      text_color='black',
+                      text='Calcular o valor da Viagem',
+                      hover_color='darkgray')
+botao.place(x=220,y=360)
+
+janela.mainloop()
