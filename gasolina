@@ -1,0 +1,49 @@
+import customtkinter as ctk
+from tkinter import messagebox
+
+#---------- Funções ----------
+def calculo():
+    d=int(distancia.get())
+    c=int(consumo.get())
+    p=float(preco.get())
+    
+    formula = (d/c)*p
+    
+    messagebox.showinfo('App Gasolina',f'O valor gasto nessa viagem será de R$ {formula:.2f}')
+#-----------------------------
+
+janela = ctk.CTk('gray')
+janela.geometry('550x400')
+janela.resizable(False,False)
+janela.title('Aplicativo Consumo de Viagem')
+janela.iconbitmap('map_car_fuel_icon_158322.ico')
+
+ctk.CTkLabel(janela,text='Calcular consumo de Gasolina',
+             font=('verdana',30,'bold'),
+             text_color='black').pack(pady=20)
+
+distancia = ctk.CTkEntry(janela,width=400,
+                         height=50,
+                         placeholder_text='Digite a Distância'
+                         )
+distancia.place(x=80,y=90)
+
+consumo = ctk.CTkEntry(janela,width=400,
+                       height=50,
+                       placeholder_text='Digite o consumo do veículo'
+                       )
+consumo.place(x=80,y=160)
+
+preco = ctk.CTkEntry(janela,width=400,
+                     height=50,
+                     placeholder_text='Digite o preço do Combustível')
+preco.place(x=80,y=230)
+
+botao = ctk.CTkButton(janela,width=150,
+                      height=40,fg_color='green',
+                      text_color='white',
+                      text='Calcular',
+                      hover_color='darkgreen',command=calculo)
+botao.place(x=200,y=310)
+
+janela.mainloop()
